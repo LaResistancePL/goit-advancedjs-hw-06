@@ -28,7 +28,7 @@ function createOrUpdateUser(initialValues: Partial<User>) {
   console.log("Aktualizowany użytkownik:", updatedUser);
 }
 
-// Przykładowe wywołanie funkcji z częściowymi danymi
+// usage
 createOrUpdateUser({ email: "user@mail.com", password: "password123" });
 
 console.log("______________________________________");

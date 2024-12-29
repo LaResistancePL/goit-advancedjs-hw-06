@@ -19,15 +19,15 @@ type Form = {
   errors: Errors;
 };
 
-// Implementacja typu Params wykluczającego 'errors'
+
 type Params = Omit<Form, "errors">;
 
-// Przykładowa funkcja używająca typu Params
+// Prusage
 function createOrUpdateUser(params: Params) {
   console.log("Tworzenie/Aktualizacja użytkownika z danymi:", params);
 }
 
-// Poprawne wywołanie funkcji z pełnymi danymi (bez 'errors')
+// example
 createOrUpdateUser({
   email: "user@mail.com",
   firstName: "Jan",
