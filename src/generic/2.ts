@@ -4,20 +4,40 @@
   Функція compare повинна повертати AllType.
 */
 
+console.log("2.ts");
+
 type AllType = {
   name: string;
   position: number;
   color: string;
-  weight: number
-}
+  weight: number;
+};
 
-function compare (top: Pick<AllType, 'name' | 'color'>, bottom: Pick<AllType, 'position' | 'weight'>): AllType {
+function compare<
+  T extends Pick<AllType, "name" | "color">,
+  U extends Pick<AllType, "position" | "weight">
+>(top: T, bottom: U): AllType {
   return {
     name: top.name,
     color: top.color,
     position: bottom.position,
     weight: bottom.weight,
-  }
+  };
 }
 
+const topObject = {
+  name: "Alice",
+  color: "Blue",
+};
+
+const bottomObject = {
+  position: 1,
+  weight: 60,
+};
+
+const result = compare(topObject, bottomObject);
+console.log(result);
+
 export {};
+
+console.log("______________________________________");

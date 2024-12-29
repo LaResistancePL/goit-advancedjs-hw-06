@@ -3,26 +3,21 @@
 */
 // Definicja interfejsu PageProps
 console.log("4.ts");
-interface PageProps {
-  title: string;
-}
-
 // Generyczna klasa Component
-class Component<T> {
-  constructor(public props: T) {}
+class Component {
+    constructor(props) {
+        this.props = props;
+    }
 }
-
 // Klasa Page dziedzicząca po Component z PageProps
-class Page extends Component<PageProps> {
-  pageInfo() {
-    console.log(this.props.title);
-  }
+class Page extends Component {
+    pageInfo() {
+        console.log(this.props.title);
+    }
 }
-
 // Przykładowe użycie
 const myPage = new Page({ title: "Moja Strona" });
 myPage.pageInfo(); // Output: Moja Strona
-
-export {};
-
 console.log("______________________________________");
+export {};
+//# sourceMappingURL=4.js.map

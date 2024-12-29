@@ -7,44 +7,30 @@
   Виправте тип у аргументі функції так, щоб не було помилок типу.
 */
 
+console.log("Task6:");
+
 type User = {
   name: string;
   surname: string;
   email: string;
   password: string;
-}
-
-// Simulating a "database" with a user object
-let currentUser: User = {
-  name: 'John',
-  surname: 'Doe',
-  email: 'john.doe@example.com',
-  password: 'password123',
 };
 
-// Use Partial<User> to make all fields optional
 function createOrUpdateUser(initialValues: Partial<User>) {
-  // User updating logic
-  if (initialValues.name) {
-    currentUser.name = initialValues.name;
-  }
-  
-  if (initialValues.surname) {
-    currentUser.surname = initialValues.surname;
-  }
-  
-  if (initialValues.email) {
-    currentUser.email = initialValues.email;
-  }
-  
-  if (initialValues.password) {
-    currentUser.password = initialValues.password;
-  }
+  const existingUser: User = {
+    name: "Jan",
+    surname: "Kowalski",
+    email: "jan.kowalski@example.com",
+    password: "securepassword",
+  };
 
-  // Output the updated user for demonstration
-  console.log('Updated user:', currentUser);
+  const updatedUser: User = { ...existingUser, ...initialValues };
+  console.log("Aktualizowany użytkownik:", updatedUser);
 }
 
-createOrUpdateUser({ email: 'user@mail.com', password: 'password123' });
+// Przykładowe wywołanie funkcji z częściowymi danymi
+createOrUpdateUser({ email: "user@mail.com", password: "password123" });
+
+console.log("______________________________________");
 
 export {};
